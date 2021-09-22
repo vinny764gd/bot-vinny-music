@@ -126,4 +126,18 @@ function play(guild, song) {
   serverQueue.textChannel.send(`Start playing: **${song.title}**`);
 }
 
+client.on("ready", () => {
+  let activities = [
+      `Desenvolvido por: ! Vinny.dev#6353`
+    ],
+    i = 0;
+  setInterval( () => client.user.setActivity(`${activities[i++ % activities.length]}`, {
+        type: "LISTENING"
+      }), 3000 ); 
+  client.user
+      .setStatus("dnd")
+      .catch(console.error);
+console.log("Estou Online!")
+});
+
 client.login(token);
